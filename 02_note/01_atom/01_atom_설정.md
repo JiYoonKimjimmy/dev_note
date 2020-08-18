@@ -3,7 +3,7 @@
 1. GitHub repository 생성
 1. 생성한 repository HTTPS url 주소 저장
 1. ATOM > Packages > Githun > Toggle Git Tab 선택
-  - 'create new repository'를 통해 새로운 project folder 생성
+    - 'create new repository'를 통해 새로운 project folder 생성
 1. Termianl에서 해당 project folder Git 설정
   - 해당 project folder로 이동
   - git config --global user.name 'github user name'
