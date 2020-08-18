@@ -1,0 +1,44 @@
+Chapter_01_REST API 및 프로젝트 소개
+* Doc : https://docs.google.com/document/d/1GFo3W6XxqhxDVVqxiSEtqkuVCX93Tdb3xzINRtTIx10/edit
+* github url : https://github.com/keesun/study/tree/master/rest-api-with-spring
+
+[REST API?]
+- API
+  - Application Programming Interface
+
+- REST
+  - REpresentatinal State Transfer
+  - 서로 다른 시스템 간의 상호 운용성을 제공하는 방법
+  - 시스템의 독립적인 진화를 보장
+  - REST API : REST 아키텍처 스타일을 따르는 API
+
+- REST 아키텍처 스타일
+  - Client-Server
+  - Stateless
+  - Cache
+  - Uniform Interface
+    - Self-descriptive message : message 스스로 설명이 가능한 형식
+      - 서버에서 메시지가 변화하더라도 클라이언트는 그 메시지 해석이 가능해야 한다.
+    - HATEOAS(Hypermedia As The Engine Of Application State) : Hypermedia(Link)를 통해 Application 상태 변화가 가능한 형태
+      - response에 Application 상태 변화가 가능한 Link를 제공하여 상태 전이가 가능해야 한다.
+  - Layered System
+  - Code-On-Demand(Optional)
+
+- HAL(Hypertext Application Language)
+
+[Project 구성]
+- event 목록 조회 REST API
+- HATEOAS의 형식의 response
+- Spring REST Docs의 문서화 관리
+- TDD 개발 방식
+- OAuth 2.0 Token 방식의 LOGIN
+
+- Java 11
+- Dependencies
+  - Web
+  - JPA
+  - HATEOAS
+  - REST Docs
+  - H2
+  - PostgreSQL
+  - Lombok
