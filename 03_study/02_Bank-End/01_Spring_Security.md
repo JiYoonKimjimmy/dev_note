@@ -1,0 +1,71 @@
+# Spring Security
+## Spring Security?
+* 인증 및 권한 부여를 통해 resource를 쉽게 제어할 수 있는 Spring의 Framework
+* DispatcherServlet 앞에서 Filter를 등록하여 요청을 먼저 확인
+
+## JWT ***(JSON Web Token)***
+### 특징
+* **웹 표준 기반** ***(RFC 7519)*** 의 다양한 환경 지원이 가능
+* **Self-Contained** ***(자가 수용적)*** 으로서 JWT 자체가 모든 정보를 포함
+* 자가 수용적인 특성을 이용해 **전달 방식이 비교적 간편**(Header 포함 or URL param 전달 가능)
+
+### JWT의 구조
+### [Header].[Payload].[Signature]
+#### Header
+```js
+{
+  "typ": "JWT",     // "typ" : token 타입 정의
+  "alg": "HS256"    // "alg" : 해싱 알고리즘 지정
+}
+// JSON string을 base 64로 Encoding 처리
+```
+
+#### Payload
+Payload 부분은 Token에 담을 정보(Claim)들을 포함
+* Registerd(등록된) Claim : 이미 정해져있는 Token 정보
+```js
+{
+  "iss": "jwttest.com",    // Token 발급자
+  "sub": "jwttest",        // Token 제목
+  "aud": "jwtuser",        // Token 대상자
+  "exp": "20200090150630", // 만료 날짜로서 현재 날짜 이후로 지정 가능(NumericDate)
+  "nbf": "20200831160000", // 활성화 날짜로서 해당 날짜가 지나야 Token 처리 가능(NumericDate)
+  "iat": "20200831150630", // 발급 날짜(issued at)로서 Token의 age를 판단 가능(NumericDate)
+  "jti": ""                // JWT의 고유 식별자로서 일회용 Token 사용할 때 유용
+}
+// JSON string을 base 64로 Encoding 처리
+```
+* Public(공개) Claim : 충돌 방지된(Collision-Resistant) 이름 형식인 URL 형식을 자기고 있는 정보
+```js
+{
+  ...
+  "https://jwttest.com": true
+  ...
+}
+// JSON string을 base 64로 Encoding 처리
+```
+* Private(비공개) Claim : Registerd 나 Public 이 아닌 정보(충돌 가능)
+```js
+{
+  ...
+  "username": "jwtest"
+  ...
+}
+// JSON string을 base 64로 Encoding 처리
+```
+
+#### Signature
+Header 와 Payload 값을 인코딩한 후 결합하여, 비밀키로 Hash하여 생성한 값
+```js
+const jwt = base64UrlEncode(header) + "." + base64UrlEncode(payload);
+HMACSHA256(jwt, secret)
+```
+
+## JWT 구현
+### JwtTokenProvider
+* JWT Token 생성 및 유효성 검증을 위한 Component 역할
+### JwtAuthenticationFilter
+* 요청으로 들어온 Token의 유효성 인증을 위한 Filter 역할
+* Security 설정 시, UsernamePasswordAuthenticationFilter 앞에 설정
+### SecurityConfiguration
+* 서버의 보안 설정을 하는 Configuration 역할
