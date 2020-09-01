@@ -117,6 +117,8 @@
 * 금융권 프로젝트를 통해 Oracle Query에 대해 다양한 경험들을 쌓았습니다.
 * 그 외에 MySQL, DB2 등 경험이 있습니다.
 
+---
+
 ## IDE 및 Tool
 * Eclipse
 * IntellJ
