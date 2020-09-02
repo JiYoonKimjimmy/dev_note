@@ -69,3 +69,61 @@ HMACSHA256(jwt, secret)
 * Security 설정 시, UsernamePasswordAuthenticationFilter 앞에 설정
 ### SecurityConfiguration
 * 서버의 보안 설정을 하는 Configuration 역할
+
+**Resource 접근 제한 표현식**
+
+| 표현식 | 의미 |
+|---|:---:|---:|
+| hasIpAddress | IP주소가 매칭할 경우 |
+| hasRole | 역할이 부여한 권한과 일치한 경우 |
+| hasAnyRole | 부여된 역할 중 일치한 항목이 있는 경우 |
+| permitAll | 모든 접근 승인 |
+| denyAll | 모든 접근 거부 |
+| anonymous | 익명의 사용자인지 확인 |
+| authenticated | 인증된 사용자인지 확인 |
+| rememberMe | 사용자가 'remember me' 사용해 인증인지 확인 |
+| fullyAuthenticated | 사용자가 모든 Credential 갖춘 상태에서 인증했는지 확인 |
+
+## User Service 구현
+### Custom UserDetailsService
+* UserDetailsService class 재정의
+### User Entity
+* UserDetails class 상속 받아 추가 정보 재정의
+### User JPA Repository
+* findByUid method 추가
+### SignController
+* 인증 성공시, 결과로 JWT token 발급
+* 비밀번호 encoding 을 위해 PasswordEncoder 설정(기본 설정은 bcrypt encoding 사용)
+***(Main Application class 에 PasswordEncoder Bean 추가)***
+### Swagger Header Field 추가
+```java
+@ApiImplicitParams({
+  @ApiImplicitParam(name = "X-AUTH-TOKEN", value = "인증 성공 후 access_token", required = true, dataType = "String", paramType = "header")
+})
+...
+```
+
+---
+## 추가
+#### Annotation
+##### @Component
+##### @Configuration
+##### @Bean
+##### @JsonProperty
+##### @NoArgsConstructor
+##### @AllArgsConstructor
+##### @RequiredArgsConstructor
+##### @ElementCollection
+##### @Builder.Default
+##### @RestControllerAdvice
+* ExceptionAdvice 에서 예외 발생시 json 형태의 결과를 반환
+##### @ExceptionHandler
+* 예외 발생시 Exception handler 로 지정
+##### @ResponseStatus
+* 해당 Exception 발생시, http status code 정의
+
+#### Java Class
+##### UserDetails.class
+##### UserDetailsService.class
+##### SimpleGrantedAuthority.class
+##### PasswordEncoder.class
