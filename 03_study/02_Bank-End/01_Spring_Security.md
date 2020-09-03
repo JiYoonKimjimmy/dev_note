@@ -106,8 +106,75 @@ HMACSHA256(jwt, secret)
 ---
 
 ## 추가
-#### Spring Security 관련 기타 Class
-##### UserDetails.class
-##### UserDetailsService.class
+#### Spring Security 관련 기타 Class 및 Interface
+##### UserDetails Interface
+* Spring Security 에서 사용자의 정보를 담는 Interface
+* User Entity 를 UserDetails 상속을 받아 구현
+```java
+public class User implements UserDetails {
+  private String userId;
+  private String password;
+  ...
+
+  /**
+   * Overiding method 들은 Security 환경에서 사용하는 회원 상태값이지만,
+   * 사용하지 않기 때문에 모두 "true" 설정
+   *
+   * - isAccountNonExpired : 계정이 만료 안되었는지
+   * - isAccountNonLocked : 계정이 잠긴 상태인지
+   * - isCredentialsNonExpired : 계정 비밀번호가 만료된 상태인지
+   * - isEnabled : 계정이 사용 가능한 상태인지
+   */
+  @Override
+  public boolean isAccountNonExpired() { return true; }
+  @Override
+  public boolean isAccountNonLocked() { return true; }
+  @Override
+  public boolean isCredentialsNonExpired() { return true; }
+  @Override
+  public boolean isEnabled() { return true; }
+}
+```
+##### UserDetailsService Interface
+* DB 에서 사용자 정보를 조회하는 Interface
+* loadUserByUsername() method 를 통해 UserDetails 형으로 사용자 정보를 저장
+```java
+public class TokenProvider {
+  ...
+  public Authentication getAuthentication(String userPk) {
+    UserDetails userDetails = userDetailsService.loadUserByUsername(userPk);
+
+    /**
+     * UsernamePasswordAuthenticationToken.class
+     * - AuthenticationFilter 등록하기 위한 Authentication 을 생성해주는
+     *   Authentication Interface 의 구현체
+     */
+    return new UsernamePasswordAuthenticationToken(userDetails, "", userDetails.getAuthorities());
+  }
+  ...
+}
+```
 ##### SimpleGrantedAuthority.class
+* Spring Security 에서 제공하는 권한 관리 Class
+* 권한 명칭만 저장하는 구조로 설계
 ##### PasswordEncoder.class
+* 단방향으로 변환하여 Password 를 안전하게 DB에 저장할 수 있는 Interface
+```java
+public class PasswordEncoderTest {
+
+  private PasswordEncoder passwordEncoder;
+
+  public PasswordEncoderTest() {
+    passwordEncoder = PasswordEncoderFactories.createDelegatingPasswordEncoder();
+  }
+
+  public void test() {
+    String password = "password";
+    String encode = passwordEncoder.encode(password);
+
+    if (passwordEncoder.matches(password, encode)) {
+      // True
+    }
+  }
+}
+```
