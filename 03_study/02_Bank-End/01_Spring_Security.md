@@ -104,25 +104,9 @@ HMACSHA256(jwt, secret)
 ```
 
 ---
-## 추가
-#### Annotation
-##### @Component
-##### @Configuration
-##### @Bean
-##### @JsonProperty
-##### @NoArgsConstructor
-##### @AllArgsConstructor
-##### @RequiredArgsConstructor
-##### @ElementCollection
-##### @Builder.Default
-##### @RestControllerAdvice
-* ExceptionAdvice 에서 예외 발생시 json 형태의 결과를 반환
-##### @ExceptionHandler
-* 예외 발생시 Exception handler 로 지정
-##### @ResponseStatus
-* 해당 Exception 발생시, http status code 정의
 
-#### Java Class
+## 추가
+#### Spring Security 관련 기타 Class
 ##### UserDetails.class
 ##### UserDetailsService.class
 ##### SimpleGrantedAuthority.class
