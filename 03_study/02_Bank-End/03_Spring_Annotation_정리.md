@@ -36,6 +36,8 @@ public class Student {
 * 예외 발생시 Exception handler 로 지정
 ### @ResponseStatus
 * 해당 Exception 발생시, http status code 정의
+### @PostConstruct
+* WAS 구동시, 특정 객체의 init method 를 호출할 때 사용
 
 ---
 
