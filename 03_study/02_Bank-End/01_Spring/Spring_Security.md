@@ -154,10 +154,10 @@ public class TokenProvider {
   ...
 }
 ```
-##### SimpleGrantedAuthority.class
+##### SimpleGrantedAuthority Class
 * Spring Security 에서 제공하는 권한 관리 Class
 * 권한 명칭만 저장하는 구조로 설계
-##### PasswordEncoder.class
+##### PasswordEncoder Class
 * 단방향으로 변환하여 Password 를 안전하게 DB에 저장할 수 있는 Interface
 ```java
 public class PasswordEncoderTest {
