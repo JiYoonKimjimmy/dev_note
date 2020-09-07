@@ -106,6 +106,22 @@ HMACSHA256(jwt, secret)
 ---
 
 ## 추가
+#### 예외 처리 보완
+##### 예외 상황
+1. JWT token 없이 API 요청한 경우 *- 403 Access Denied 에러*
+2. 형식에 맞지 않거나 만료된 JWT token 으로 API 요청한 경우 *- 403 Access Denied 에러*
+3. 유효한 JWT token 이지만, 권한이 없는 경우 *- 403 Forbidden 에러*
+
+##### 403 Access Denied 예외 처리
+* token 검증 단계에서 인증 처리가 불가능하기 때문에 끝나버리는 현상
+* Spring Security 에서 제공하는 AuthenticationEntryPoint 를 상속 받아 redirect 처리
+
+##### 403 Forbidden 예외 처리
+* token 는 정상이지만 리소스에 대한 권한이 없는 경우
+* Spring Security 에서 제공하는 AccessDeniedHandler 를 상속 받아 redirect 처리
+
+---
+
 #### Spring Security 관련 기타 Class 및 Interface
 ##### UserDetails Interface
 * Spring Security 에서 사용자의 정보를 담는 Interface
