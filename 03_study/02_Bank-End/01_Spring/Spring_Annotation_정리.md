@@ -4,6 +4,7 @@
 * 해당 Class 를 Bean 구성 Class 로 Spring IOC Container 에 지정
 ### @Bean
 * 개발자가 직접 제어가 불가능한 외부 라이브러리등을 Bean 등록할 때 사용
+* ***Bean? Spring IOC Container 가 관리하는 Java 객체. ApplicationContext 가 객체를 생성하고 관리한다.***
 ```java
 @Configuration
 public class ApplicationConfig {
