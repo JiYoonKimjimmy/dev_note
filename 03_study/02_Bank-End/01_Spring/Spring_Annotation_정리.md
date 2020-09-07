@@ -73,6 +73,8 @@ public class Student {
 ### @Builder.Default
 * Builder.build() 시, 기본값을 설정할 때 사용
 * 설정안할 경우, 0 / null / false 로 설정
+### @Slf4j
+* Logger 변수 선언없이 Logger 사용 가능
 
 ---
 
