@@ -125,5 +125,17 @@ public class KakaoProfile {
 ---
 
 ## 추가
+#### Social Login TEST Flow
+1. /social/login 접속
+1. 소셜 로그인 요청
+1. 소셜 로그인 완료 후 access_token 발급
+1. /swagger-ui.html 접속
+1. /api/sign/signup/{provider} 사용자 가입
+    1. 발급받은 Social Login access_token 필요
+1. /api/sign/singin 사용자 로그인하여 JWT Token 발급
+1. 발급받은 JWT Token 으로 API 테스트
+
 #### Social Login 관련 기타 Class 및 Interface2
 ##### RestTemplate Class
+* Spring 에서 지원하는 REST API 를 호출하고 응답 받을 때까지 기다리는 동기 방식의 내장 Class ***(비동기식은 AsyncRestTemplate.class)***
+* HTTP 프로토콜의 메서드들 제공
