@@ -39,6 +39,12 @@ public class Student {
 * 해당 Exception 발생시, http status code 정의
 ### @PostConstruct
 * WAS 구동시, 특정 객체의 init method 를 호출할 때 사용
+### @Target
+* Annotation 위치 설정
+* **ElementType** 을 parameter 로 설정
+### @Retention
+* Annotation 유지 정책을 설정
+* **RetentionPolicy** 을 parameter 로 설정
 
 ---
 
@@ -71,6 +77,10 @@ public class Student {
 ---
 
 ## Spring JPA 설정 관련
+### @Transactional
+* **Transaction**? 시스템(DB 등..) 상태를 변환시키는 하나의 논리적인 기능의 작업 단위
+* 선언된 Class 에 Transaction 기능이 적용된 Proxy 객체 생성
+* PlatformTransactionManager 를 사용하여 Transaction 을 시작하고, 정상 여부에 따라 Commit, Rollback 처리
 ### @ElementCollection
 * 단순하거나 내장된 유형을 1:N 관계를 구현할 때 사용
 * 주로 Entity 가 아닌 유형을 매핑할 때 사용
