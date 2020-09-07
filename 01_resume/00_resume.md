@@ -25,6 +25,7 @@
 * Front-End : HTML, jQuery, JavaScript
 * Back-End : Java, iBatis, JSP
 * Database : Oracle
+
 ### FIDO 생체인증 시스템 구축 프로젝트(2016.08 ~ 2017.05)
 * 스마트폰에서 지원하는 지문인증 및 홍채인증을 KB국민은행 모든 앱 서비스의 인증 프로세스에 적용 프로젝트
 * 담당 업무 : 프로젝트 전체 설계 문서 작성, Web/Native Interface 공통 개발
@@ -66,7 +67,7 @@
 * Back-End : Spring Boot, JPA, JOOQ, Spring Security
 * Database : MySQL
 * DevOps : Docker, Jenkins, AWS
-##### 기술 Spec : Java, Spring 5.0, Spring Boot, Vue.js, JPA, JOOQ, MySQL, AWS, Docker, Jenkins
+
 ### 카매니저 App 고도화 프로젝트(2018.05 ~ 2018.08)
 * 중고차 딜러 지원 서비스 카매니저 고도화 프로젝트
 * 담당 업무 : 메인 화면, 검색 서비스, 고객 관리, 설정, Api Server 재구축
@@ -82,6 +83,7 @@
 * Front-End : HTML, jQuery, JavaScript
 * Back-End : Java, JSP
 * Database : Oracle
+
 ### iONE Bank 2.0 고도화 프로젝트(2018.12 ~ 2019.06)
 * iONE Bank App 서비스 2.0 버전업 프로젝트
 * 담당 업무 : 입출금 및 카드 상품 가입 프로세스, 메인 계좌뷰 설정, 고객센터 전체 개발
@@ -92,6 +94,7 @@
 * Front-End : HTML, jQuery, JavaScript, Vue.js(Lib)
 * Back-End : Java, JSP
 * Database : Oracle
+
 ### 하나원큐플러스 고도화 프로젝트(2020.03 ~ 2020.08)
 * 하나원큐플러스 App 서비스 고도화 프로젝트
 * 담당 업무 : 연락처 이체(전자지갑 이체) 프로세스 신규 구축
@@ -116,11 +119,3 @@
 ##### 기술 spec : Oracle, MySQL, DB2
 * 금융권 프로젝트를 통해 Oracle Query에 대해 다양한 경험들을 쌓았습니다.
 * 그 외에 MySQL, DB2 등 경험이 있습니다.
-
----
-
-## IDE 및 Tool
-* Eclipse
-* IntellJ
-* Orange
-* Atom
