@@ -11,12 +11,13 @@
 
 ### OAuth Flow
 ![25238637583547EC0A](/assets/25238637583547EC0A.png)
-(A) Client 가 Social Login 요청
-(B) Resource Owner 는 Social Login 할 수 있게 화면 이동
-(C) Client 는 Social Login 완료
-(D) 로그인이 성공하면 AUthorization Server 는 Client 에게 Access Token 발급
-(E) Client 는 발급받은 Token 으로 Resource Server 에게 Resource 를 요청
-(D) Resource Server 는 Token 유효한지 검증하고 응답 처리
+<br>
+(A) Client 가 Social Login 요청<br>
+(B) Resource Owner 는 Social Login 할 수 있게 화면 이동<br>
+(C) Client 는 Social Login 완료<br>
+(D) 로그인이 성공하면 AUthorization Server 는 Client 에게 Access Token 발급<br>
+(E) Client 는 발급받은 Token 으로 Resource Server 에게 Resource 를 요청<br>
+(D) Resource Server 는 Token 유효한지 검증하고 응답 처리<br>
 
 ---
 
