@@ -10,5 +10,5 @@
 ---
 
 ## Tool
-- [ATOM](https://github.com/JiYoonKimjimmy/dev_note/blob/master/02_note/01_atom)
-- [Git](https://github.com/JiYoonKimjimmy/dev_note/blob/master/02_note/02_git)
+- [ATOM](/02_note/01_atom)
+- [Git](/02_note/02_git)
