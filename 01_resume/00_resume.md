@@ -104,18 +104,18 @@
 
 # 기술 및 도구
 ## Front-End
-##### 기술 spec : HTML, Javascript, jQuery, Vue.js
+### *HTML, Javascript, jQuery, Vue.js*
 * 다양한 앱 어플리케이션 프로젝트의 화면 개발을 통해 HTML, JavaScript, jQuery 에 대대한 많은 개발 경험이 있습니다.
 * ECMA 6의 문법을 공부하고 실제 개발에서도 많이 사용하고자 노력하고 있습니다.(금융권 업무상, babel 같은 plugin 부재로 ES6 문법은 지양하는 편입니다.)
 * 특정 몇가지 프로젝트를 통해 Vue.js를 접하게 되었고, 기본적인 Data binding, Vue.js methods, Components, Template 등 개발 가능합니다.
 
 ## Back-End
-##### 기술 spec : Java, Spring Framework, JPA, JOOQ, MyBatis, Docker, Jenkins
+### *Java, Spring Framework, JPA, JOOQ, MyBatis, Docker, Jenkins*
 * Spring Framework기반의 RESTful API 개발에 대해 이해하고, 개발 가능합니다.
 * JPA를 이용한 API 개발이 가능하고, JPA의 단점을 보완할 JOOQ 개발 경험이 있습니다.
 * AWS를 이용한 Cloud Server 구축을 하고, Docker와 Jenkins를 통해 안전하고 유지보수가 용이한 DevOps 환경 구축 경험이 있습니다.
 
 ## Database
-##### 기술 spec : Oracle, MySQL, DB2
+### *Oracle, MySQL*
 * 금융권 프로젝트를 통해 Oracle Query에 대해 다양한 경험들을 쌓았습니다.
 * 그 외에 MySQL, DB2 등 경험이 있습니다.
