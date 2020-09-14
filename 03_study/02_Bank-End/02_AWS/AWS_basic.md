@@ -39,3 +39,9 @@ Amazon 에서 제공하는 ***Cloud Computing Web Service*** 플랫폼
 
 ## RDS
 * [AWS DB 환경 구축 참고](https://velog.io/@swchoi0329/AWS-%EB%8D%B0%EC%9D%B4%ED%84%B0%EB%B2%A0%EC%9D%B4%EC%8A%A4-%ED%99%98%EA%B2%BD-%EA%B5%AC%EC%B6%95)
+
+#### 관련 명령어
+```bash
+# DB 접속
+$ mysql -u admin -p -h [DB Host address]
+```
