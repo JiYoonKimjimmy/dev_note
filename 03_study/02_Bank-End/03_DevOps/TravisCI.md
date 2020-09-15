@@ -1,7 +1,7 @@
 # Spring Boot + Travis CI 연동
-> [참고. swchoi.log 블로그 - Travis CI 배포 자동화](https://velog.io/@swchoi0329/Travis-CI-%EB%B0%B0%ED%8F%AC-%EC%9E%90%EB%8F%99%ED%99%94)
+> [참고. swchoi.log 블로그 [Travis CI 배포 자동화]](https://velog.io/@swchoi0329/Travis-CI-%EB%B0%B0%ED%8F%AC-%EC%9E%90%EB%8F%99%ED%99%94)
 
-![Travis CI](https://media.vlpt.us/images/swchoi0329/post/7c47d76b-a2e5-4fb1-9408-b626767a6fb9/3.png)
+![Travis CI](https://blog.kakaocdn.net/dn/b4Qp4h/btqB6JnDavT/RFaJbfaX9trqfs5B2st9bk/img.png)
 
 ## CI & CD
 ### CI(Continuous Integration) *- 지속적인 통합?*
@@ -317,7 +317,6 @@ hooks:
       runas: ec2-user
 ```
 
-### 추가
 #### 배포 Log 확인 방법
 ##### CodeDeploy 관련 Log
 ```bash
