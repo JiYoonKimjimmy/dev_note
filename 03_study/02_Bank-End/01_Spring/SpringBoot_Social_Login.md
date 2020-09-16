@@ -140,3 +140,7 @@ public class KakaoProfile {
 ##### RestTemplate Class
 * Spring 에서 지원하는 REST API 를 호출하고 응답 받을 때까지 기다리는 동기 방식의 내장 Class ***(비동기식은 AsyncRestTemplate.class)***
 * HTTP 프로토콜의 메서드들 제공
+
+---
+
+[관련 Github Repository](https://github.com/JiYoonKimjimmy/demo-rest-api)
