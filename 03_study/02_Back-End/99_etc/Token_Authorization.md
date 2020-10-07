@@ -1,4 +1,4 @@
-#Token Authorization
+# Token Authorization
 ## 서버 기반 인증의 문제점
 ### Session 문제
 Session에 사용자의 인증 정보를 계속 저장해둔다면, 서버의 RAM 과부하의 문제와 Session 정보를 Database화 하더라도 Database 성능 저하 문제가 발생한다.
