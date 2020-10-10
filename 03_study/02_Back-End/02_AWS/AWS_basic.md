@@ -35,6 +35,11 @@ Amazon 에서 제공하는 ***Cloud Computing Web Service*** 플랫폼
 * [Amazon Linux1 EC2 서버 필수 설정](https://velog.io/@minholee_93/AWS-Amazon-Linux1-EC2-%EC%84%9C%EB%B2%84-%ED%95%84%EC%88%98-%EC%84%A4%EC%A0%95)
 * [AWS Spring Boot 배포하기](https://velog.io/@swchoi0329/series/%EC%8A%A4%ED%94%84%EB%A7%81-%EB%B6%80%ED%8A%B8%EC%99%80-AWS%EB%A1%9C-%ED%98%BC%EC%9E%90-%EA%B5%AC%ED%98%84%ED%95%98%EB%8A%94-%EC%9B%B9-%EC%84%9C%EB%B9%84%EC%8A%A4)
 
+#### 참고. mac에서 EC2 접속 방법
+```bash
+ssh -i [AWS Key pem file path] ec2-user@[EC2 HOST URL]
+```
+
 ---
 
 ## RDS
