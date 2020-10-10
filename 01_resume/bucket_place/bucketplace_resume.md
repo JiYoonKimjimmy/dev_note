@@ -1,10 +1,10 @@
 # 버킷플레이스 과제 제출
 
-> **목차**
->> [1. SQL Query 문제_1](#sql-query-문제_1)
->> [2. SQL Query 문제_2](#sql-query-문제_2)
->> [3. DB Modeling 문제](#db-modeling-문제)
->> [4. 알고리즘 문제](#알고리즘-문제)
+> **목차**<br>
+> [1. SQL Query 문제_1](#sql-query-문제_1)<br>
+> [2. SQL Query 문제_2](#sql-query-문제_2)<br>
+> [3. DB Modeling 문제](#db-modeling-문제)<br>
+> [4. 알고리즘 문제](#알고리즘-문제)<br>
 
 ---
 
