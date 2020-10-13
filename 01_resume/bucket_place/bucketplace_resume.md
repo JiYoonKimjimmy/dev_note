@@ -17,20 +17,18 @@ SELECT
     c.id,
     c.image_url,
     u.nickname,
-    (
-        IF ((SELECT EXISTS(
-
-            SELECT
-                s.card_id,
-                sb.user_id
-            FROM scraps s
-                RIGHT JOIN scrapbooks sb on s.scrapbook_id = sb.id
-            WHERE sb.user_id in ('[특정 사용자 ID]')
-            and s.card_id = c.id
-        )) = 0, 'FALSE', 'TRUE')
-    ) AS `is_scrap`
+    IF(ssb.user_id IS NULL, 'FALSE', 'TRUE') AS `is_scrap`
 FROM cards c
-LEFT JOIN users u on c.user_id = u.id;
+    LEFT JOIN users u on u.id = c.user_id
+    LEFT JOIN (
+        SELECT
+            DISTINCT s.card_id,
+            sb.user_id
+        FROM scrapbooks sb
+            LEFT JOIN scraps s on sb.id = s.scrapbook_id
+        WHERE sb.user_id  = '[특정 사용자 ID]'
+    ) ssb
+    on c.id = ssb.card_id;
 ```
 
 ##### B. 사진 리스트를 스크랩한 사용자 수에 대하여 내림차순으로 정렬 SQL문 작성
@@ -39,20 +37,12 @@ SELECT
     c.id,
     c.image_url,
     u.nickname,
-    s.scrapper_count
+    COUNT(s.card_id) AS `scrapper_count`
 FROM cards c
-LEFT JOIN
-(
-    SELECT
-      card_id,
-      COUNT(card_id) AS `scrapper_count`
-    FROM scraps
-    GROUP BY card_id
-) s
-on c.id = s.card_id
-LEFT JOIN users u
-on c.user_id = u.id
-ORDER BY s.scrapper_count DESC;
+LEFT JOIN users u on c.user_id = u.id
+LEFT JOIN scraps s on c.id = s.card_id
+GROUP BY s.card_id
+ORDER BY scrapper_count DESC;
 ```
 
 ##### C. 특정 사용자의 스크랩북 리스트를 보여줄 때 각각 스크랩북의 대표 이미지와 스크랩 수를 함께 조회 SQL문 작성
@@ -160,9 +150,10 @@ GROUP BY p.id;
 
 ## DB Modeling 문제
 #### 2-1.
+<iframe width="700" height="400" src='https://dbdiagram.io/embed/5f84182b3a78976d7b77425f'></iframe>
 
 #### 2-2.
-
+<iframe width="700" height="400" src='https://dbdiagram.io/embed/5f8424b13a78976d7b7745a4'> </iframe>
 
 ---
 
@@ -170,12 +161,6 @@ GROUP BY p.id;
 ***알고리즘 문제는 `Python` 언어로 문제 풀이하였습니다.***
 ### 문제1.
 ##### 2개의 배열에 있는 수를 한개 뽑아 곱하여 누적한 값들의 `최소 값` 구하기
-
-#### 풀이 방법
-1. 2개의 배열의 같은 위치에 있는 2개의 수들의 곱셈
-2. 곱셈 처리한 값을 누적하여 저장
-3. 두번째 배열을 왼쪽으로 `shift` 하면서 배열 크기만큼 `1번, 2번` 반복
-4. 누적된 값 중 `최소 값`을 반환
 
 #### Code
 ```python
@@ -198,11 +183,6 @@ def solution(a, b):
 
 ### 문제2.
 ##### 개발자들의 팀대결 순서에 따른 `최대 승리 게임의 수` 정하기
-
-#### 풀이 방법
-1. `프론트` 팀의 제일 강한 선수에겐 무조건 `백엔드` 팀의 제일 약한 선수를 배정
-2. `백엔드` 팀에서 `프론트` 팀 강한 선수 순서대로 이길 수 있는 제일 약한 선수를 찾아 배정
-3. `백엔드` 팀이 승리하는 경우에 `승리 게임의 수 + 1` 처리
 
 #### Code
 ```python
@@ -238,3 +218,7 @@ def solution(a, b):
 
     return answer
 ```
+
+---
+
+***과제를 진행하면서 부족한 부분을 많이 느끼고 공부하게 되었습니다.***
