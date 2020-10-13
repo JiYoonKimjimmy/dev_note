@@ -14,21 +14,20 @@
 ##### A. 전체 사진 리스트를 가져올때, 특정 사용자가 리스팅된 사진을 스크랩 했는지를 함께 알 수 있는 SQL문 작성
 ```sql
 SELECT
-    c.id,
-    c.image_url,
+    DISTINCT c2.id,
+    c2.image_url,
     u.nickname,
-    IF(ssb.user_id IS NULL, 'FALSE', 'TRUE') AS `is_scrap`
-FROM cards c
-    LEFT JOIN users u on u.id = c.user_id
+    IF(t.id IS NOT NULL, 'TRUE', 'FALSE') as `is_scrap`
+FROM cards c2
+    LEFT JOIN users u on u.id = c2.user_id
     LEFT JOIN (
         SELECT
-            DISTINCT s.card_id,
-            sb.user_id
-        FROM scrapbooks sb
-            LEFT JOIN scraps s on sb.id = s.scrapbook_id
-        WHERE sb.user_id  = '[특정 사용자 ID]'
-    ) ssb
-    on c.id = ssb.card_id;
+            c1.id
+        FROM cards c1
+            LEFT JOIN scraps s on c1.id = s.card_id
+            LEFT JOIN scrapbooks sb on s.scrapbook_id = sb.id
+        WHERE sb.user_id = '[특정 사용자 ID]'
+    ) t on c2.id = t.id;
 ```
 
 ##### B. 사진 리스트를 스크랩한 사용자 수에 대하여 내림차순으로 정렬 SQL문 작성
@@ -48,30 +47,29 @@ ORDER BY scrapper_count DESC;
 ##### C. 특정 사용자의 스크랩북 리스트를 보여줄 때 각각 스크랩북의 대표 이미지와 스크랩 수를 함께 조회 SQL문 작성
 ```sql
 SELECT
-    sb.id,
-    sb.title,
-    (
-        SELECT
-            c.image_url
-        FROM scraps s
-            LEFT JOIN cards c on c.id = s.card_id
-        WHERE s.scrapbook_id = sb.id
-        ORDER BY s.created_at ASC, s.id DESC, c.id DESC
-        LIMIT 1
-    ) AS `image_url`,
-    s.scrap_count
-FROM scrapbooks sb
-LEFT JOIN
-(
+    t2.id,
+    t2.title,
+    t2.image_url,
+    t2.scrap_count
+FROM (
     SELECT
-      scrapbook_id, card_id,
-      COUNT(scrapbook_id) AS `scrap_count`
-    FROM scraps
-    GROUP BY scrapbook_id
-) s
-on sb.id = s.scrapbook_id
-WHERE sb.user_id in ('[특정 사용자 ID]')
-ORDER BY sb.created_at DESC;
+        *,
+        COUNT(*) as `scrap_count`
+    FROM (
+        SELECT
+            sb.*,
+            c.image_url
+        FROM scrapbooks sb
+            LEFT JOIN scraps s on sb.id = s.scrapbook_id
+            LEFT JOIN cards c on c.id = s.card_id
+        WHERE
+            sb.user_id = '[특정 사용자 ID]'
+        ORDER BY sb.created_at DESC, s.created_at ASC, s.id DESC, c.id DESC
+        LIMIT 18446744073709551615
+    ) t1
+    GROUP BY t1.id
+) t2
+ORDER BY t2.created_at DESC;
 ```
 
 ---
@@ -221,4 +219,5 @@ def solution(a, b):
 
 ---
 
-***과제를 진행하면서 부족한 부분을 많이 느끼고 공부하게 되었습니다.***
+## 과제 진행 소감
+**이번 "버킷플레이스"의 과제를 진행하면서 부족한 부분을 많이 느끼고 공부하게 되었습니다.<br>SQL Query 과제에 대한 개발 후,  'EXPLAIN' 명령어를 통해서 Query 실행 계획에 대한 성능을 확인하여 Query 최적화를 위해 수정을 거듭하게 되었고, 그로 인해 한단계 더 성장할 수 있던 시간이었습니다.<br>그리고, Database Modeling 과제를 통해서 확장성과 성능을 고려한 DB Table 구성은 어떠한 방식으로 접근하고 설계해야 하는지 고민할 수 있었습니다.<br>마지막으로 알고리즘 과제를 진행하면서, 알고리즘 코딩에 적합한 `Python`의 내장함수를 활용한 알고리즘 문제를 해결하고, 이진 탐색 알고리즘과 큐 자료구조에 대해 다시 한번 공부하고 구현해볼 수 있었던 소중한 시간이었습니다.<br><br>많이 부족한 면이 많지만, 그만큼 남들보다 더 공부하고 성장할 수 있도록 노력하는 "버킷플레이스"의 개발자이자 일원이 되도록 하겠습니다.<br>감사합니다.**
