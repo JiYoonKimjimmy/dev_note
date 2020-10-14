@@ -2,23 +2,23 @@
 
 ## Open API 신청 방법
 ##### 1. 공공 데이터 포털 [(https://www.data.go.kr)](https://www.data.go.kr/) 접속
-![image1](./images/image1.png)
+![image1](/02_note/00_temp/공공_데이터_포털/images/image1.PNG)
 ##### 2. 회원 가입 및 로그인
-![image2](./images/image2.png)
+![image2](/02_note/00_temp/공공_데이터_포털/images/image2.png)
 ##### 3. 이용하고자 하는 공공 API 표준데이터 **(전국주차장표준데이터 or 전국세차장표준데이터)** 검색
-![image3](./images/image3.png)
+![image3](/02_note/00_temp/공공_데이터_포털/images/image3.png)
 ##### 4. 표준데이터 Open API 활용 신청
-![image4](./images/image4.png)
+![image4](/02_note/00_temp/공공_데이터_포털/images/image4.png)
 ##### 5. 활용목적만 작성하면 쉽게 신청 완료
-![image5](./images/image5.png)
+![image5](/02_note/00_temp/공공_데이터_포털/images/image5.png)
 
 ---
 
 ## Open API 활용 방법
 ##### 1. 신청한 활용 공공 데이터 확인 (마이페이지에서 확인 가능)
-![image6](./images/image6.png)
+![image6](/02_note/00_temp/공공_데이터_포털/images/image6.png)
 ##### 2. Open API 정보 확인
-![image7](./images/image7.png)
+![image7](/02_note/00_temp/공공_데이터_포털/images/image7.png)
 ##### 3. API 조회 테스트
 * 요청시 주의사항
     * `serviceKey`도 `url param`에 담아줘야 조회 가능
@@ -33,7 +33,7 @@
     * **전국세차장표준데이터**는 `페이징` 처리 및 조회가 정상 동작하지만, 조건 검색이 `LIKE` 검색이 아닙니다.
 * [마이페이지 > 활용 Open API 상세 페이지] 에서 `미리보기` 기능으로 테스트 가능
 
-![image8](./images/image8.png)
+![image8](/02_note/00_temp/공공_데이터_포털/images/image8.png)
 
 ---
 
