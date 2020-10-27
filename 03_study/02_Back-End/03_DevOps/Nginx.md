@@ -11,7 +11,7 @@
   * 정적 파일 처리 HTTP 서버 역할
   * Reverse Proxy 서버 역할
 
->**Revser Proxy 서버?**
+>**Reverse Proxy 서버?**
 >>Client 가 Server 로 요청한 경우, Proxy 서버 ***(NGINX)*** 가 Reverse 서버 ***(Application)*** 로부터 데이터를 가져오는 역할을 한다.
 
 >**Event-Driven 구조?**
