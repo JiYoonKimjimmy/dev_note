@@ -73,7 +73,7 @@ HMACSHA256(jwt, secret)
 **Resource 접근 제한 표현식**
 
 | 표현식 | 의미 |
-|---|:---:|---|
+| --- | :---: | --- |
 | hasIpAddress | IP주소가 매칭할 경우 |
 | hasRole | 역할이 부여한 권한과 일치한 경우 |
 | hasAnyRole | 부여된 역할 중 일치한 항목이 있는 경우 |
