@@ -1,3 +1,5 @@
+## 모든 노트 파일은 [jiyoonkimjimmy.github.io](https://jiyoonkimjimmy.github.io) 이동
+
 # dev_note 목록
 ## [Back-End](03_study/02_Bank-End)
 ### [Spring](03_study/02_Bank-End/01_Spring)
