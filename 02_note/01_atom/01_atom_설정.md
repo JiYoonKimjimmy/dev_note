@@ -23,3 +23,22 @@ git config --list
 - 'Scroll Past End' & 'Soft Wrap' 체크
 ### Markdown 문법
 ##### 참조 : https://heropy.blog/2017/09/30/markdown/
+
+---
+
+## `snippets` 적용
+```json
+'.text.md':
+  'Jekyll Code Block':
+    'prefix': 'codeblock'
+    'body': '{% highlight $1 %}$2\n{% endhighlight %}'
+  'Start Jekyll Code Block':
+    'prefix': 'startcodeblock'
+    'body': '{% highlight $1 %}'
+  'End Jekyll Code Block':
+    'prefix': 'endcodeblock'
+    'body': '{% endhighlight %}'
+  'br Tag Element':
+    'prefix': 'br'
+    'body': '<br>\n'
+```
