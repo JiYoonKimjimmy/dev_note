@@ -27,7 +27,7 @@ git config --list
 ---
 
 ## `snippets` 적용
-```json
+```
 '.text.md':
   'Jekyll Code Block':
     'prefix': 'codeblock'
